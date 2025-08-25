@@ -11,6 +11,7 @@
 		7F1B9DD62E5CAAC2002DFE84 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1B9DD52E5CAAC2002DFE84 /* ContentView.swift */; };
 		7F1B9DD82E5CAAC3002DFE84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F1B9DD72E5CAAC3002DFE84 /* Assets.xcassets */; };
 		7F1B9DDB2E5CAAC3002DFE84 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F1B9DDA2E5CAAC3002DFE84 /* Preview Assets.xcassets */; };
+		7F1B9DE22E5CB811002DFE84 /* LoadImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F1B9DE12E5CB811002DFE84 /* LoadImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		7F1B9DD52E5CAAC2002DFE84 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7F1B9DD72E5CAAC3002DFE84 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7F1B9DDA2E5CAAC3002DFE84 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7F1B9DE12E5CB811002DFE84 /* LoadImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			children = (
 				7F1B9DD32E5CAAC2002DFE84 /* CupcakeCornerApp.swift */,
 				7F1B9DD52E5CAAC2002DFE84 /* ContentView.swift */,
+				7F1B9DE12E5CB811002DFE84 /* LoadImageView.swift */,
 				7F1B9DD72E5CAAC3002DFE84 /* Assets.xcassets */,
 				7F1B9DD92E5CAAC3002DFE84 /* Preview Content */,
 			);
@@ -138,6 +141,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F1B9DD62E5CAAC2002DFE84 /* ContentView.swift in Sources */,
+				7F1B9DE22E5CB811002DFE84 /* LoadImageView.swift in Sources */,
 				7F1B9DD42E5CAAC2002DFE84 /* CupcakeCornerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
