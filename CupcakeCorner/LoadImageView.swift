@@ -7,6 +7,14 @@
 
 import SwiftUI
 
+// @Observable
+class User: Codable, ObservableObject{
+    // this is for encoding it properly
+//    enum CodingKeys: String, CodingKey {
+//        case _name = "name"
+//    }
+    var name = "Santhosh"
+}
 struct LoadImageView: View {
     
     @State private var userName = ""
@@ -56,7 +64,21 @@ struct LoadImageView: View {
 //                .disabled(userName.isEmpty || email.isEmpty)
                 .disabled(disabledForm)
             }
+            Button{
+                encodeTaylor()
+            } label: {
+                Text("Encode Taylor")
+            }
         }
+    }
+    
+    func encodeTaylor(){
+        let data = try! JSONEncoder().encode(User())
+        let str = String(decoding: data, as: UTF8.self)
+        print(str)
+        // if we use an @Observable for the class instead od an observableObject. we get a dict
+        // {"_name":"Santhosh","_$observationRegistrar":{}}
+        
     }
 }
 
