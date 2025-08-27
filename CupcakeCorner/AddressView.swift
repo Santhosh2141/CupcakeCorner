@@ -26,7 +26,15 @@ struct AddressView: View {
                 
                 Section{
                     NavigationLink("Checkout"){
+//                        let addressArray = [order.name, order.streetAddress, order.city, order.zip]
+//                        if let encoded = try? JSONEncoder().encode(addressArray){ UserDefaults.standard.set(encoded, forKey: "AddressArray")
+//                        }
                         CHeckoutView(order: order)
+                            .onAppear{
+                                let addressArray = [order.name, order.streetAddress, order.city, order.zip]
+                                if let encoded = try? JSONEncoder().encode(addressArray){ UserDefaults.standard.set(encoded, forKey: "AddressArray")
+                                }
+                            }
                     }
                 }
                 .disabled(order.hasValidAddress == false)

@@ -25,13 +25,18 @@ class Order: Codable, ObservableObject{
     @Published var extraFrosting = false
     @Published var addSprinkles = false
     
-    @Published var name = ""
+    @Published var name = "" {
+        didSet {
+            UserDefaults.standard.setValue(name, forKey: "Name")
+        }
+    }
     @Published var streetAddress = ""
     @Published var city = ""
     @Published var zip = ""
     
     var hasValidAddress: Bool {
-        if (name.isEmpty  || streetAddress.isEmpty || city.isEmpty || zip.isEmpty) {
+        if (name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty  || streetAddress.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || city.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ||
+            zip.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty) {
             return false
         }
         return true
@@ -84,6 +89,7 @@ class Order: Codable, ObservableObject{
         streetAddress = try container.decode(String.self, forKey: .streetAddress)
         city = try container.decode(String.self, forKey: .city)
         zip = try container.decode(String.self, forKey: .zip)
+        
     }
     
     func encode(to encoder: Encoder) throws {
@@ -98,5 +104,40 @@ class Order: Codable, ObservableObject{
         try container.encode(city, forKey: .city)
         try container.encode(zip, forKey: .zip)
     }
-    init() { }
+    
+    init(){
+        if let savedAddress = UserDefaults.standard.data(forKey: "AddressArray") {
+            if let decoded = try? JSONDecoder().decode([String].self, from: savedAddress) {
+                name = decoded[0]
+                streetAddress = decoded[1]
+                city = decoded[2]
+                zip = decoded[3]
+                return
+            }
+        }
+        name = ""
+        streetAddress = ""
+        city = ""
+        zip = ""
+    }
+//    init() {
+//            self.name = UserDefaults.standard.string(forKey: "Name") ?? ""
+//            self.streetAddress = UserDefaults.standard.string(forKey: "StreetAddress") ?? ""
+//            self.city = UserDefaults.standard.string(forKey: "City") ?? ""
+//            self.zip = UserDefaults.standard.string(forKey: "Zip") ?? ""
+//        }
+//        if let savedAddress = UserDefaults.standard.data(forKey: "AddressArray"){
+//            if let decoded = try? JSONDecoder().decode([String].self, from: savedAddress){
+//                name = savedAddress[0]
+//                streetAddress = savedAddress[1]
+//                city = savedAddress[2]
+//                zip = savedAddress[3]
+//                return
+//            }
+//        }
+//        name = ""
+//        streetAddress = ""
+//        city = ""
+//        zip = ""
+//    }
 }
